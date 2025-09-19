@@ -1,73 +1,93 @@
-# Welcome to your Lovable project
+# MarkSphere - 
+### "Your personal sphere of saved bookmarks"
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/aaaf2ae8-afaa-4306-b734-b17b86df4b0c
+**URL**: https://swiftmark-forge-main.vercel.app/
 
-## How can I edit this code?
+A **full-stack Bookmark Saving Application** built with **NestJS** for the REST-based backend and **React + Tailwind + TypeScript** for the frontend. The app allows users to **create, edit, and delete bookmarks**, manage their accounts securely, and experience a smooth, dynamic, and animated UI.  
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Features  
+- 🔑 **Authentication & Security**: Secure login with **hashing and JWT tokens**  
+- 👤 **User Management**: Create, update, and delete users  
+- 📚 **Bookmark Management**: Add, edit, delete, and manage bookmarks easily  
+- 🎨 **Frontend**: Built with **React, Tailwind, and TypeScript**, featuring animations and a clean UI  
+- 🛠️ **Backend**: REST API using **NestJS** with structured modules and services  
+- 🗄️ **Database**: **PostgreSQL** with **Prisma ORM**  
+- 🧪 **Testing**: Full **end-to-end testing** for reliability  
+- 🐳 **Dockerized** for easy deployment  
+- 🧰 API tested with **Insomnia**  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/aaaf2ae8-afaa-4306-b734-b17b86df4b0c) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack  
+- **Frontend**: React, Tailwind CSS, TypeScript  
+- **Backend**: NestJS, Node.js  
+- **Database**: PostgreSQL, Prisma ORM  
+- **Authentication**: JWT, bcrypt hashing  
+- **Testing**: End-to-End (e2e)  
+- **Dev Tools**: Docker, Insomnia  
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📂 Project Structure  
+/backend → NestJS REST API (Users, Bookmarks, Auth)
+/frontend → React + Tailwind + TypeScript UI
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+yaml
+Copy code
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## ⚙️ Installation & Setup  
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### 1️⃣ Clone the repo  
+```bash
+git clone https://github.com/your-username/bookmark-app.git
+cd bookmark-app
+2️⃣ Backend Setup
+bash
+Copy code
+cd backend
+npm install
+# Setup environment variables in .env (DB URL, JWT secret, etc.)
+npx prisma migrate dev
+npm run start:dev
+3️⃣ Frontend Setup
+bash
+Copy code
+cd frontend
+npm install
 npm run dev
-```
+4️⃣ Docker Setup (Optional)
+bash
+Copy code
+docker-compose up --build
+📸 Screenshots
+(Add screenshots or GIFs of your UI here)
 
-**Edit a file directly in GitHub**
+📖 Learnings
+Through this project, I learned:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Structuring and building a REST API with NestJS
 
-**Use GitHub Codespaces**
+Implementing secure authentication with JWT & hashing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Using Prisma ORM with PostgreSQL
 
-## What technologies are used for this project?
+Creating a modern frontend with React + Tailwind + TypeScript
 
-This project is built with:
+Writing and running end-to-end tests
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Working with Docker for containerization
 
-## How can I deploy this project?
+API testing with Insomnia
 
-Simply open [Lovable](https://lovable.dev/projects/aaaf2ae8-afaa-4306-b734-b17b86df4b0c) and click on Share -> Publish.
+🔍 Search and filter bookmarks
 
-## Can I connect a custom domain to my Lovable project?
+📂 Folder/Tag support for organizing bookmarks
 
-Yes, you can!
+🌐 Deploying full-stack app using Render & Vercel
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
