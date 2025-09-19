@@ -44,7 +44,7 @@ const Dashboard = () => {
       description: 'Update your personal information and settings',
       icon: User,
       link: '/users',
-      color: 'bg-blue-500'
+      color: 'bg-blue-700'
     },
     {
       title: 'View All Bookmarks',
@@ -55,7 +55,7 @@ const Dashboard = () => {
     },
     {
       title: 'Add New Bookmark',
-      description: 'Save a new website to your collection',
+      description: 'Save a new website to your collection to visit anytime you need',
       icon: Plus,
       link: '/bookmarks?add=true',
       color: 'bg-purple-500'
@@ -63,8 +63,8 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-soft">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-300">
+      <div className="container px-10 py-8 pb-40">
         {/* Welcome Section */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -74,16 +74,16 @@ const Dashboard = () => {
         >
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-3xl font-bold mb-2">
+              <h1 className="text-3xl pt-3 font-bold mb-2">
                 Welcome back, {user?.firstName || user?.email?.split('@')[0] || 'User'}! 👋
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-accent-foreground">
                 Here's what's happening with your bookmarks today.
               </p>
             </div>
             <div className="mt-4 md:mt-0">
               <Link to="/bookmarks">
-                <Button className="group transition-smooth">
+                <Button className="group transition-smooth rounded-xl hover:bg-blue-900">
                   <Plus className="mr-2 h-4 w-4" />
                   Add Bookmark
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -100,7 +100,7 @@ const Dashboard = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-8"
         >
-          <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+          <h2 className="text-xl scale-y-110 font-semibold pt-3 ml-3 mb-5">Quick Actions</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {quickActions.map((action, index) => {
               const Icon = action.icon;
@@ -114,17 +114,17 @@ const Dashboard = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   <Link to={action.link}>
-                    <Card className="cursor-pointer hover:shadow-medium transition-smooth group">
-                      <CardContent className="p-6">
+                    <Card className="cursor-pointer hover:shadow-2xl shadow-xl hover:bg-blue-900 hover:text-white  transition-smooth group rounded-2xl">
+                      <CardContent className="p-8 ">
                         <div className="flex items-start space-x-4">
-                          <div className={`p-3 rounded-lg ${action.color} bg-opacity-10`}>
+                          <div className={`p-3 rounded-lg mr-2 ${action.color} bg-opacity-70`}>
                             <Icon className={`h-6 w-6 ${action.color.replace('bg-', 'text-')}`} />
                           </div>
-                          <div className="flex-1">
-                            <h3 className="font-semibold mb-1 group-hover:text-primary transition-smooth">
+                          <div className="flex-1 ">
+                            <h3 className="font-semibold mb-1 group-hover:text-white transition-smooth">
                               {action.title}
                             </h3>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-muted-foreground group-hover:text-white transition-smooth">
                               {action.description}
                             </p>
                           </div>
@@ -145,10 +145,10 @@ const Dashboard = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold">Recent Bookmarks</h2>
+          <div className="flex items-center justify-between pt-6 mb-6">
+            <h2 className="text-xl ml-3 font-semibold scale-y-110">Recent Bookmarks</h2>
             <Link to="/bookmarks">
-              <Button variant="outline" size="sm" className="transition-smooth">
+              <Button variant="outline" size="sm" className="transition-smooth hover:bg-blue-900 hover:text-white mr-5">
                 View All
               </Button>
             </Link>
@@ -169,23 +169,23 @@ const Dashboard = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
-                  <Card className="hover:shadow-medium transition-smooth group">
-                    <CardContent className="p-4">
+                  <Card className="rounded-xl shadow-xl text-white hover:shadow-2xl transition-smooth group bg-blue-900 hover:bg-white">
+                    <CardContent className="p-5">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
                           <div className="flex items-center space-x-3">
-                            <Bookmark className="h-4 w-4 text-primary flex-shrink-0" />
+                            <Bookmark className=" h-8 w-8 text-blue-500 flex-shrink-0 fill-white group-hover:fill-none group-hover:text-primary" />
                             <div className="min-w-0">
                               <h3 className="font-medium truncate group-hover:text-primary transition-smooth">
                                 {bookmark.title}
                               </h3>
                               {bookmark.description && (
-                                <p className="text-sm text-muted-foreground truncate mt-1">
+                                <p className="text-sm text-white/70 group-hover:text-muted-foreground truncate  mt-1">
                                   {bookmark.description}
                                 </p>
                               )}
-                              <div className="flex items-center space-x-4 mt-2 text-xs text-muted-foreground">
-                                <div className="flex items-center space-x-1">
+                              <div className="flex items-center space-x-4 mt-2 text-xs text-white group-hover:text-muted-foreground">
+                                <div className="flex items-center space-x-2 ">
                                   <Calendar className="h-3 w-3" />
                                   <span>{new Date(bookmark.createdAt).toLocaleDateString()}</span>
                                 </div>
@@ -198,9 +198,9 @@ const Dashboard = () => {
                             href={bookmark.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-2 hover:bg-muted rounded-md transition-smooth"
+                            className="p-2 hover:bg-blue-300 rounded-md transition-smooth group-hover:text-muted-foreground"
                           >
-                            <ExternalLink className="h-4 w-4" />
+                            <ExternalLink className="h-6 w-6" />
                           </a>
                         </div>
                       </div>

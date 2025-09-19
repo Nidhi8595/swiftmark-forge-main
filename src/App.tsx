@@ -15,7 +15,6 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Users from "./pages/Users";
 import Bookmarks from "./pages/Bookmarks";
-import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,7 +33,6 @@ const App = () => (
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/about" element={<About />} />
                 <Route 
                   path="/dashboard" 
                   element={
